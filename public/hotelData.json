@@ -1,0 +1,42 @@
+[
+  {
+    "id": "65111bccf9a2d4cacbcdc8a3",
+    "price": "$1,473",
+    "picture": "https://images.unsplash.com/flagged/photo-1556438758-8d49568ce18e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80",
+    "bed": 1,
+    "name": "Standard Single Room",
+    "about":" Voluptate consequat ipsum laborum ut in sit sint. Ex mollit ex ipsum aliqua sunt irure irure pariatur adipisicing laboris.  "
+  },
+  {
+    "id": "65111bccb6ac0711d072e93a",
+    "price": "$1,964",
+    "picture": "https://as1.ftcdn.net/v2/jpg/01/98/23/58/1000_F_198235898_DLqECcCxh90nbw3J3RKE3h3D4EmgB3bF.jpg",
+    "bed": 2,
+    "name": "Family Capacity Room",
+    "about": "Voluptate consequat ipsum laborum ut in sit sint. Ex mollit ex ipsum aliqua sunt irure irure pariatur adipisicing laboris."
+  },
+  {
+    "id": "65111bcc9243eb19d89e7188",
+    "price": "$1,196",
+    "picture": "https://img.freepik.com/free-photo/cozy-studio-apartment-with-bedroom-living-space_1262-12323.jpg?w=740&t=st=1695640074~exp=1695640674~hmac=107c9abf5f5cd0a83a75a5e2b891f88176417e8413fef7fe5ec56a604d9029cb",
+    "bed": 1,
+    "name": "Couple Power Room",
+    "about": "Voluptate consequat ipsum laborum ut in sit sint. Ex mollit ex ipsum aliqua sunt irure irure pariatur adipisicing laboris."
+  },
+  {
+    "id": "65111bcce27c46efb73308d2",
+    "price": "$1,844",
+    "picture": "https://img.freepik.com/free-photo/3d-rendering-luxury-bedroom-suite-resort-hotel-with-twin-bed-living_105762-2018.jpg?w=740&t=st=1695639844~exp=1695640444~hmac=eabb2018c1f24965f51ae7a7e2097eb76caa0d41f94a18bafe148ca3a118e27c",
+    "bed": 2,
+    "name": "Standard Couple Room",
+    "about": "Voluptate consequat ipsum laborum ut in sit sint. Ex mollit ex ipsum aliqua sunt irure irure pariatur adipisicing laboris."
+  },
+  {
+    "id": "65111bcce27c46efb73301f2",
+    "price": "$3,844",
+    "picture": "https://img.freepik.com/free-photo/double-bed-with-cushions_1203-19.jpg?w=740&t=st=1695640651~exp=1695641251~hmac=6faced92cc900a05dc3bbd0f0130b0f7d1eb7761de959c1f15cf4d9a7c8232ba",
+    "bed": 1,
+    "name": " Single Room",
+    "about": "Fugiat dolor dolore officia eu velit excepteur dolore amet qui culpa irure qui. Ut aliqua pariatur incididunt esse veniam sunt.  "
+  }
+]
