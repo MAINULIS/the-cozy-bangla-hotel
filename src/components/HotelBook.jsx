@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const HotelBook = ({ hotel }) => {
     const { id, name, bed, price, picture, about } = hotel
@@ -15,7 +16,9 @@ const HotelBook = ({ hotel }) => {
                 <p className='text-secondary fw-semibold fs-5'>price: {price}</p>
                  <div className='d-flex justify-content-between'>
                  <p className=' fw-semibold'>Bed: {bed}</p>
-                <Button variant="primary">Book Now</Button>
+                <Link  to='/booking'>
+                <Button  variant="primary">Book Now</Button>
+                </Link>
                  </div>
             </Card.Body>
         </Card>
