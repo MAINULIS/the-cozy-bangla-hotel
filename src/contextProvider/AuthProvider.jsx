@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
@@ -11,6 +11,7 @@ const GithubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({children}) => {
  const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
 
 // 1 Registration
  const createUser = (email, password) =>{
@@ -32,10 +33,28 @@ const AuthProvider = ({children}) => {
     const signInWithGithub = () =>{
       return signInWithPopup(auth, GithubProvider);
     }
+
+    // 6 logOut
+    const logOut = () =>{
+       return signOut(auth);
+    }
+
+    // 7. observe auth state change
+    useEffect( ()=>{
+        const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+            console.log(currentUser);
+            setUser(currentUser);
+            setLoading(false);
+        })
+        // stop observer while unmounting
+        return () => {unsubscribe(); }
+    },[])
     const authInfo = {
         user,
+        loading,
         createUser,
         LogIn,
+        logOut,
         resetPassword,
         signInWithGoogle,
         signInWithGithub,

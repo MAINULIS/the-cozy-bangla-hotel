@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../contextProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FaGoogle, FaGithub } from 'react-icons/fa6'
 
@@ -9,6 +9,12 @@ import { FaGoogle, FaGithub } from 'react-icons/fa6'
 const SignIn = () => {
     const { LogIn, resetPassword, signInWithGoogle,signInWithGithub } = useContext(AuthContext);
     const emailRef = useRef();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
+
+    const from = location.state?.from?.pathname || '/';
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -34,6 +40,7 @@ const SignIn = () => {
                 console.log(loggedUser);
                 setSuccess('User has been successfully logged in');
                 e.target.reset();
+                navigate(from, {replace:true})
             })
             .catch(error => {
                 setError(error.message);

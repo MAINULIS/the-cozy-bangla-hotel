@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import HotelBook from './HotelBook';
+import { FaArrowDownLong } from "react-icons/fa6";
 
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
             <div  className='text-secondary' style={textStyle}>
                 <h3>A Cozy Bangla luxury Housing 
                 </h3>
-                <h2 className='ms-5 text-info'>  Let's Book </h2>
+                <h2 className='ms-5 text-info'>  Let's Book <FaArrowDownLong /> </h2>
             </div>
            <div  className='row'> 
            {

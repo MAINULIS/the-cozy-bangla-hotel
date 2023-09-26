@@ -12,6 +12,8 @@ import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
 import Booking from './components/Booking.jsx';
 import AuthProvider from './contextProvider/AuthProvider.jsx';
+import Orders from './components/Orders.jsx';
+import PrivateRoute from './privateAuth/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path:'booking',
-        element: <Booking />
+        element: <PrivateRoute><Booking /></PrivateRoute>
+      },
+      {
+        path:'orders',
+        element:<PrivateRoute><Orders /></PrivateRoute>
       }
     ]
   }

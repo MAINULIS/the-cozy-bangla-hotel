@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { GiBed } from "react-icons/gi";
+import { BsArrowRight } from "react-icons/bs";
 
 const HotelBook = ({ hotel }) => {
     const { id, name, bed, price, picture, about } = hotel
@@ -15,9 +17,9 @@ const HotelBook = ({ hotel }) => {
                 </Card.Text>
                 <p className='text-secondary fw-semibold fs-5'>price: {price}</p>
                  <div className='d-flex justify-content-between'>
-                 <p className=' fw-semibold'>Bed: {bed}</p>
+                 <h5 className=' fw-semibold'><GiBed />: {bed}</h5>
                 <Link  to='/booking'>
-                <Button  variant="primary">Book Now</Button>
+                <Button  variant="primary">Book Now <BsArrowRight /></Button>
                 </Link>
                  </div>
             </Card.Body>
