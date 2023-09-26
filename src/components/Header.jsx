@@ -6,7 +6,7 @@ const Header = () => {
     
     return (
        
-        <Navbar expand="lg">
+        <Navbar expand="lg" className='py-4 bg-secondary-subtle'>
           <Container className='fw-bold '>
               <NavLink className="text-decoration-none" to="/">The Cozy Bangla Hotel</NavLink>
               <Nav className=' d-flex justify-content-between' >

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HotelBook = ({ hotel }) => {
     const { id, name, bed, price, picture, about } = hotel
     return (
-      <div className='container  col-3 m-5'>
+      <div className='container col-3 m-5 '>
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={picture} />
             <Card.Body>

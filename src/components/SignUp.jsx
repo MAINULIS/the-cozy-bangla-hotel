@@ -3,16 +3,20 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contextProvider/AuthProvider';
 import { sendEmailVerification } from 'firebase/auth';
+import { BsEye, BsEyeSlash} from "react-icons/bs";
 
 const SignUp = () => {
     const {createUser} = useContext(AuthContext);
+    const [show, setShow] = useState(false);
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    let eye ={
+        marginLeft: -35,
+    }
 
     const handleSignUp=(e) =>{
         e.preventDefault();
@@ -85,12 +89,27 @@ const SignUp = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' value={password} onChange={handlePassword} placeholder="Password" required />
+                   <div className='d-flex '>
+                   <Form.Control type={show ? "text" : "password"} name='password' value={password} onChange={handlePassword} placeholder="Password" required />
+                    <h5  style={eye} onClick={()=>setShow(!show)}>
+                    {
+                        show ? <BsEyeSlash /> : <BsEye />
+                    }
+                    </h5>
+                   </div>
+                    
                     {passwordError && <span className='text-danger'>{passwordError}</span>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" name='confirmPassword' placeholder="Password" required />
+                    <div className='d-flex'>
+                    <Form.Control type={show ? "text" : "password"} name='confirmPassword' placeholder="Password" required />
+                    <h5  style={eye} onClick={()=>setShow(!show)}>
+                    {
+                        show ? <BsEyeSlash /> : <BsEye />
+                    }
+                    </h5>
+                    </div>
                 </Form.Group>
                 
                  <p className='text-danger'>{error}</p>

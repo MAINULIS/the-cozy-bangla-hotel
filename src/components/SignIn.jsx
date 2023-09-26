@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../contextProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import { BsEye, BsEyeSlash} from "react-icons/bs";
 
 
 const SignIn = () => {
@@ -10,6 +11,11 @@ const SignIn = () => {
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [show, setShow] = useState(false);
+
+    let eye ={
+        marginLeft: -35,
+    }
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -67,7 +73,14 @@ const SignIn = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
+                    <div className='d-flex'>
+                    <Form.Control type={show ? "text" : "password"} name='password' placeholder="Password" required />
+                    <h5  style={eye} onClick={()=>setShow(!show)}>
+                    {
+                        show ? <BsEyeSlash /> : <BsEye />
+                    }
+                    </h5>
+                    </div>
                 </Form.Group>
 
                 <p className='text-danger'>{error}</p>
