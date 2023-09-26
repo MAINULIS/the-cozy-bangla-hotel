@@ -95,7 +95,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className='m-5 w-50 container'>
+        <div className='m-5 w-50 container mx-auto'>
             <div>
                 <h3 className='text-center m-4 fw-semibold'>Sign In Now</h3>
             </div>
@@ -124,7 +124,7 @@ const SignIn = () => {
                 <p className='text-danger'>{error}</p>
                 <p className='text-success'>{success}</p>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Sign In
                 </Button>
                 <div>
                     <Link

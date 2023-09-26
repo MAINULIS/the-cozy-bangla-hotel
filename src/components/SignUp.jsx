@@ -74,7 +74,7 @@ const SignUp = () => {
         }
      }
     return (
-        <div className='m-5 w-50 container'>
+        <div className='m-5 w-50 container mx-auto '>
             <h3 className='text-center m-4 fw-semibold'>Register Now</h3>
            <div>
            <Form onSubmit={handleSignUp}>
@@ -115,7 +115,7 @@ const SignUp = () => {
                  <p className='text-danger'>{error}</p>
                  <p className='text-success'>{success}</p>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Sign Up
                 </Button>
                 <div>
                 <Link to="/signIn" className='text-decoration-none text-secondary'>

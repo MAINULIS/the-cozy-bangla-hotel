@@ -7,7 +7,7 @@ import { FaArrowDownLong } from "react-icons/fa6";
 
 const Home = () => {
     const hotelData = useLoaderData();
-    console.log(hotelData)    
+    // console.log(hotelData)    
      
     var background = { backgroundSize: 'cover' };
     var textStyle = {
