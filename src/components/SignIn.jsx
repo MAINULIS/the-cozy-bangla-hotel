@@ -2,18 +2,19 @@ import React, { useContext, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../contextProvider/AuthProvider';
 import { Link } from 'react-router-dom';
-import { BsEye, BsEyeSlash} from "react-icons/bs";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { FaGoogle, FaGithub } from 'react-icons/fa6'
 
 
 const SignIn = () => {
-    const { LogIn, resetPassword } = useContext(AuthContext);
+    const { LogIn, resetPassword, signInWithGoogle,signInWithGithub } = useContext(AuthContext);
     const emailRef = useRef();
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [show, setShow] = useState(false);
 
-    let eye ={
+    let eye = {
         marginLeft: -35,
     }
 
@@ -38,6 +39,36 @@ const SignIn = () => {
                 setError(error.message);
                 setSuccess('');
             })
+
+    }
+    // sign in with google
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setSuccess('User successfully sign in with Google');
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message);
+                setSuccess('');
+            })
+    }
+
+    // sign in with github
+    const handleGithubSignIn = () =>{
+        signInWithGithub()
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setSuccess('User successfully sign in with Github');
+            setError('');
+        })
+        .catch(error =>{
+            setError(error.message);
+            setSuccess('');
+        })
     }
     // if forget password
     const handleResetPassword = () => {
@@ -64,7 +95,7 @@ const SignIn = () => {
             <Form onSubmit={handleSignIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your full Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Your Name" required />
+                    <Form.Control type="text" name='name' placeholder="Your Name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -74,12 +105,12 @@ const SignIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <div className='d-flex'>
-                    <Form.Control type={show ? "text" : "password"} name='password' placeholder="Password" required />
-                    <h5  style={eye} onClick={()=>setShow(!show)}>
-                    {
-                        show ? <BsEyeSlash /> : <BsEye />
-                    }
-                    </h5>
+                        <Form.Control type={show ? "text" : "password"} name='password' placeholder="Password" required />
+                        <h5 style={eye} onClick={() => setShow(!show)}>
+                            {
+                                show ? <BsEyeSlash /> : <BsEye />
+                            }
+                        </h5>
                     </div>
                 </Form.Group>
 
@@ -98,6 +129,8 @@ const SignIn = () => {
                     <p className='text-zinc-600'><small>Forget password? Please</small> <button onClick={handleResetPassword} className="btn btn-active btn-link text-xs">Reset Password</button></p>
                 </div>
             </Form>
+            <Button onClick={handleGoogleSignIn} className='mb-2 w-50' variant="outline-primary">  <FaGoogle /> Login With Google</Button> <br />
+            <Button onClick={handleGithubSignIn} className='w-50' variant="outline-secondary"><FaGithub /> Login With Github</Button>
         </div>
     );
 };
